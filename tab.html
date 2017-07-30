@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script src="jquery.min.js"></script>
+     <style>
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        .tab-ul{
+            height: 50px;
+        }
+        .tab-li{
+            float:left;
+            width:150px;
+            height: 40px;
+            border:1px solid red;
+            list-style: none;
+            cursor: pointer;
+        }
+        .active{
+            border-bottom: 2px solid skyblue;
+            background-color: #ccc;
+        }
+        #bottom , .main-div{
+            width: 450px;
+            height: 300px;
+            clear: both;
+            border: 2px solid black;
+            display: none;
+        }
+        
+        #bottom , .selected{
+            display: block;
+        }
+
+     </style>
+</head>
+<body>
+    <div id="header">
+        <ul class="tab-ul">
+            <li class="tab-li active">tab一</li>
+            <li class="tab-li ">tab二</li>
+            <li class="tab-li">tab三</li>
+        </ul>
+    </div>
+    <div id="bottom">
+        <div class="main-div selected">内容一</div>
+        <div class="main-div ">内容二</div>
+        <div class="main-div">内容三</div>
+    </div>
+</body>
+<script>
+    //给类名为tab-li绑定一个单击的事件
+    $(".tab-li").click(function(){
+        //给当前单击的对象添加一个class=active,同辈类名为tab-li要移除类名为active
+        $(this).addClass('active').siblings(".tab-li").removeClass("active");
+        //获取当前对象的所在匹配元素的索引
+        var index = $(this).index();
+        //获取到对应下标index的div元素
+        $(".main-div").eq(index).addClass("selected").siblings(".main-div").removeClass("selected");
+    });
+</script>
+</html>

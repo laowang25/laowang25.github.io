@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+    *{padding: 0px;margin: 0px}
+    dt{margin: 10px; width: 100px;background-color: red}
+    dd{margin-left:10px;}
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>收藏夹</dt>
+        <dd>2345下载</dd>
+        <dd>桌面</dd>
+        <dd>最近访问位置</dd>
+    </dl>
+    <dl>
+        <dt>库</dt>
+        <dd>图片</dd>
+        <dd>视频</dd>
+        <dd>音乐</dd>
+        <dd>文档</dd>
+    </dl>
+    <dl>
+        <dt>计算机</dt>
+        <dd>C盘</dd>
+        <dd>D盘</dd>
+        <dd>E盘</dd>
+    </dl>
+</body>
+<script>
+    //给dl 下面 dt绑定单击事件
+    $("dl dt").click(function(){
+        //首先找到当前（$(this)）的父元素($(this).parent()),再找父元素下面的dd元素（$(this).parent().find("dd")）
+        //找到之后在调用效果方法
+        $(this).parent().find("dd").slideToggle();
+    });
+</script>
+</html>
